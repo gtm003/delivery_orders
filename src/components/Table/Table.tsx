@@ -1,10 +1,13 @@
 import { Table } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
 import orders from '../../data/orders';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { Order, Point } from '../../interfaces/interfaces';
+import { changeCurrentOrder } from '../../store/oder/orderSlice';
 
-const RequestsTable: React.FC = () => {
+const OrdersTable: React.FC = () => {
   console.log(orders);
+  const dispatch = useAppDispatch();
 
   const columns: ColumnsType<Order> = [
     {
@@ -34,6 +37,7 @@ const RequestsTable: React.FC = () => {
   const rowSelection = {
     onChange: (selectedRowKeys: React.Key[], selectedRows: Order[]) => {
       console.log(selectedRows);
+      dispatch(changeCurrentOrder(selectedRows[0]));
     },
   };
 
@@ -51,4 +55,4 @@ const RequestsTable: React.FC = () => {
   );
 };
 
-export default RequestsTable;
+export default OrdersTable;
