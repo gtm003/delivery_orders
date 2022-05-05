@@ -1,0 +1,48 @@
+@import '~antd/dist/antd.css';
+
+html * {
+  box-sizing: border-box;
+}
+.reflex-container {
+  height: 100vh !important;
+}
+
+.right-pane {
+  overflow: hidden !important;
+}
+/*
+.left-pane {
+}
+.pane-content {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+*/
+.leaflet-container {
+  height: 100%;
+}
+.leaflet-control-container .leaflet-routing-container-hide {
+  display: none;
+}
+
+.ant-point-select {
+  width: 100%;
+}
+.ant-point-select > .ant-select-selector {
+  padding-left: 0 !important;
+}
+
+.app-container {
+  display: flex;
+}
+
+.map-container {
+  width: 50vw;
+  height: 80vh;
+}
+
+.table-container {
+  width: 50vw;
+  height: 80vh;
+}
