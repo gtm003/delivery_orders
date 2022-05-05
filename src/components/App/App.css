@@ -3,6 +3,7 @@
 html * {
   box-sizing: border-box;
 }
+
 .reflex-container {
   height: 100vh !important;
 }
@@ -10,15 +11,7 @@ html * {
 .right-pane {
   overflow: hidden !important;
 }
-/*
-.left-pane {
-}
-.pane-content {
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-*/
+
 .leaflet-container {
   height: 100%;
 }
@@ -35,14 +28,15 @@ html * {
 
 .app-container {
   display: flex;
+  padding-top: 2vh;
 }
 
 .map-container {
-  width: 50vw;
-  height: 80vh;
+  width: 65vw;
+  height: 95vh;
 }
 
 .table-container {
-  width: 50vw;
-  height: 80vh;
+  width: 35vw;
+  height: 95vh;
 }

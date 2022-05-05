@@ -4,7 +4,7 @@ import { NUMBER_OF_ORDERS } from '../constants/constants';
 import { Order } from '../interfaces/interfaces';
 import points from './points';
 
-faker.seed(1);
+faker.seed(123);
 
 const orders: Order[] = [];
 
@@ -13,7 +13,7 @@ for (let i = 0; i < NUMBER_OF_ORDERS; i++) {
   const pointsWithoutFrom = points.filter((point) => point !== from);
 
   orders.push({
-    key: i,
+    key: i + 1,
     name: `Order_${i + 1}`,
     from : from,
     to: faker.helpers.arrayElement(pointsWithoutFrom),

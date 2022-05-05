@@ -8,8 +8,9 @@ export const orderSlice = createSlice({
   initialState,
   reducers: {
     changeCurrentOrder(state, action: PayloadAction<Order>) {
-      console.log(action.payload);
-      state = action.payload;
+      //console.log(action.payload);
+      state.currentOder = action.payload;
+      console.log(state.currentOder);
     },
   },
 });

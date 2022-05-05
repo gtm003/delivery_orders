@@ -36,7 +36,6 @@ const OrdersTable: React.FC = () => {
 
   const rowSelection = {
     onChange: (selectedRowKeys: React.Key[], selectedRows: Order[]) => {
-      console.log(selectedRows);
       dispatch(changeCurrentOrder(selectedRows[0]));
     },
   };
