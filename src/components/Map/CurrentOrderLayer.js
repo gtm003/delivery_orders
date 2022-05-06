@@ -1,16 +1,16 @@
 import L, { point } from 'leaflet';
 import { useEffect, useMemo } from 'react';
 import { useMap } from 'react-leaflet';
-import { useAppSelector } from '../../hooks/useAppSelector';
+import { useSelectedOrder } from '../../store/oder/orderSlice';
 import RoutingMachine from './RoutingMachine';
 
 const CurrentOrderLayer = () => {
-  const {from, to, key} = useAppSelector((state) => state.order.currentOder);
+  const selectedOrder = useSelectedOrder();
 
-  const routePoints = !key ? [] : [
-    [from.latLng[0], from.latLng[1]],
-    [to.latLng[0], to.latLng[1]],
-  ];
+  const routePoints = useMemo(() => !selectedOrder ? [] : [
+    [selectedOrder.from.latLng[0], selectedOrder.from.latLng[1]],
+    [selectedOrder.to.latLng[0], selectedOrder.to.latLng[1]],
+  ], [selectedOrder]);
   const map = useMap();
   const defaultBounds = useMemo(() => map.getBounds(), [map]);
 
