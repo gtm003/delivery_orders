@@ -14,10 +14,11 @@ const OrdersTable: React.FC = () => {
 
   const columns: ColumnsType<Order> = [
     {
-      title: '№ Заявки',
+      title: '№',
       dataIndex: 'name',
       key: 'name',
-      render: (text) => <div style={{ minWidth: 150 }}>{text}</div>,
+      render: (text) => <div style={{ minWidth: "fit-content" }}>{text}</div>,
+      width: '100px'
     },
     {
       title: 'Точка погрузки',

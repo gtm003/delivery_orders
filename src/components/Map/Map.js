@@ -1,24 +1,31 @@
-import React from 'react';
-import {
-  MapContainer,
-  TileLayer,
-} from 'react-leaflet';
+import React, { useCallback } from 'react';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import { CENTER } from '../../constants/constants';
 import CurrentOrderLayer from './CurrentOrderLayer';
 
-const Map = () => {
-
+const Map = React.forwardRef((props, ref) => {
+  const onMapCreated = useCallback(
+    (map) => {
+      if (ref) {
+        ref.current = map;
+      }
+    },
+    [ref]
+  );
   return (
-    <div className="map-container">
-      <MapContainer doubleClickZoom={false} zoom={11} center={CENTER}>
+    <MapContainer
+      doubleClickZoom={false}
+      zoom={11}
+      center={CENTER}
+      whenCreated={onMapCreated}
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
       <CurrentOrderLayer />
-      </MapContainer>
-    </div>
+    </MapContainer>
   );
-};
+});
 
 export default Map;

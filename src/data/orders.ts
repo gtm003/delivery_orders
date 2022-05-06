@@ -14,7 +14,7 @@ for (let i = 0; i < NUMBER_OF_ORDERS; i++) {
 
   orders.push({
     key: i + 1,
-    name: `Order_${i + 1}`,
+    name: `${i + 1}`,
     from : from,
     to: faker.helpers.arrayElement(pointsWithoutFrom),
   });

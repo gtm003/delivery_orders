@@ -20,7 +20,7 @@ for (let i = 0; i < NUMBER_OF_POINTS; i++) {
   });
   points.push({
     key: i,
-    name: `Point_${i}`,
+    name: faker.company.companyName(),
     latLng: [lat, lng],
   });
 }

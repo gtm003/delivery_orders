@@ -25,7 +25,6 @@ const PointSelect: React.FC<PointSelectProps> = ({defaultValue, pointType, order
   return (
     <Select
       showSearch
-      style={{ width: 200 }}
       defaultValue={defaultValue}
       optionFilterProp="children"
       onChange={onChange}
