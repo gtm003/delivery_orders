@@ -17,14 +17,9 @@ html * {
   height: 100vh !important;
 }
 
-
-/*
-.map-container {
-  width: 65vw;
-  height: 95vh;
+.spin {
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
 }
-
-.table-container {
-  width: 35vw;
-  height: 95vh;
-}*/

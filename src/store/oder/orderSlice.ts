@@ -22,11 +22,27 @@ export const orderSlice = createSlice({
       state.orders[action.payload.orderKey - 1][action.payload.pointType] =
         points[action.payload.pointKey];
     },
+    changeLoadingState(state) {
+      state.isRouteLoading = !state.isRouteLoading;
+    },
+    handleLoadingRouteError(state) {
+      state.isRouteLoading = false;
+      state.isErrorOccured = true;
+    },
+    resetError(state) {
+      state.isErrorOccured = false;
+    },
   },
 });
 export const useSelectedOrder = () =>
   useAppSelector(
     (state) => state.order.orders[state.order.selectedOrderId - 1]
   );
-export const { changeCurrentOrder, changeOrderPoint } = orderSlice.actions;
+export const {
+  changeCurrentOrder,
+  changeOrderPoint,
+  changeLoadingState,
+  handleLoadingRouteError,
+  resetError,
+} = orderSlice.actions;
 export default orderSlice.reducer;
