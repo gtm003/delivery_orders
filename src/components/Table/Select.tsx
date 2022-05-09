@@ -12,21 +12,38 @@ interface PointSelectProps {
   orderKey: number;
 }
 
-const PointSelect: React.FC<PointSelectProps> = ({defaultValue, pointType, orderKey}) => {
-  const dispatch = useAppDispatch()
+interface OptionSelectProps {
+  children: string;
+}
+
+const PointSelect: React.FC<PointSelectProps> = ({
+  defaultValue,
+  pointType,
+  orderKey,
+}) => {
+  const dispatch = useAppDispatch();
   function onChange(value: number) {
-    dispatch(changeOrderPoint({
-      orderKey:orderKey,
-      pointType:pointType,
-      pointKey: value,
-    }))
+    dispatch(
+      changeOrderPoint({
+        orderKey: orderKey,
+        pointType: pointType,
+        pointKey: value,
+      })
+    );
   }
 
   return (
     <Select
       showSearch
+      style={{ minWidth: 100 }}
       defaultValue={defaultValue}
       optionFilterProp="children"
+      filterOption={(input: string, option: any) =>
+        option?.children?.toLowerCase().indexOf(input.toLowerCase()) >= 0
+      }
+      filterSort={(optionA: OptionSelectProps, optionB: OptionSelectProps) =>
+        optionA.children.localeCompare(optionB.children.toLowerCase())
+      }
       onChange={onChange}
     >
       {points.map((point) => (

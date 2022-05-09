@@ -1,6 +1,5 @@
 import { Table } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
-//import orders from '../../data/orders';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { Order, Point } from '../../interfaces/interfaces';
@@ -17,15 +16,19 @@ const OrdersTable: React.FC = () => {
       title: '№',
       dataIndex: 'name',
       key: 'name',
-      render: (text) => <div style={{ minWidth: "fit-content" }}>{text}</div>,
-      width: '100px'
+      render: (text) => <div style={{ minWidth: 'fit-content' }}>{text}</div>,
+      width: '100px',
     },
     {
       title: 'Точка погрузки',
       dataIndex: 'from',
       key: 'from',
       render: (from: Point, record: Order) => (
-        <PointSelect defaultValue={from.key} pointType="from" orderKey={record.key} />
+        <PointSelect
+          defaultValue={from.key}
+          pointType="from"
+          orderKey={record.key}
+        />
       ),
     },
     {
@@ -33,7 +36,11 @@ const OrdersTable: React.FC = () => {
       dataIndex: 'to',
       key: 'to',
       render: (to: Point, record: Order) => (
-        <PointSelect defaultValue={to.key} pointType="to" orderKey={record.key} />
+        <PointSelect
+          defaultValue={to.key}
+          pointType="to"
+          orderKey={record.key}
+        />
       ),
     },
   ];
